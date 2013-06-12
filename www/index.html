@@ -10,14 +10,24 @@
         <title>Hello World</title>
         
         
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
         
         <script type="text/javascript" src="cordova-2.7.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        
+        
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css"/>
+        <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        
+        <!--<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>-->
+        <script src="js/jquery.mobile-1.3.1.min.js"></script>
+        
         <script src="js/getdata.js"></script>
+        <script src="js/buildpages.js"></script>
+        <script src="js/jquery.blockUI.js"></script>
         <link rel="stylesheet" href="css/news_record.css"/>
+        <link rel="stylesheet" href="css/pagination.css"/>
+        
         
     </head>
     <body>
@@ -41,6 +51,7 @@
             //
             function onDeviceReady() {
                 
+                $(document).ajaxStop($.unblockUI);
                 
                 $(document).bind("orientationchange", function (e) {
                                  //getScreenHeight()
@@ -72,238 +83,76 @@
                                  });
                 
                 ///copy web code from here: // copy everything inside $(function(){});
-                function getNewsBlocks(type, keyword) {
-                    
-                    URLInfo.baseurl = "http://cnewsfinder.appspot.com/?";
-                    URLInfo.keywords = type;
-                    URLInfo.value = keyword;
-                    var url = URLInfo.baseurl + URLInfo.keywords + '=' + URLInfo.value;
-                    var result = {};
-                    
-                    return $.getJSON(url, function (data) {
-                                     
-                                     result = data;
-                                     
-                                     var reclist = data['catagory'];
-                                     var pageData = '';
-                                     
-                                     localStorage.setItem('reclist', JSON.stringify(reclist));
-                                     });
-                }
-                
-                function createDom(reclist,cat) {
-                    var title = '';
-                    if (cat == 'mili') title = '';
-                    else if (cat == 'ente') title = '娱乐';
-                    else if (cat == 'econ') title = '财经';
-                    else if (cat == 'news') title = '新闻';
-                    else if (cat == 'hist') title = '历史';
-                    
-                    
-                    
-                    //pageData is one page's core data, it contains 5 news blocks.
-                    var pageData = '',
-                    pageData0 = '';
-                    
-                    $.each(reclist, function (id, data) {
-                           var idx = id + 1;
-                           var number = idx / 5 ;
-                           
-                           if (idx > 20) return;
-                           
-                           
-                           pageData +=
-                           "<div class=" + "div_" + idx % 5 + " class = 'content_div'" + " data-idx=" + idx + ">" +
-                           
-                           "<img class='img' src=" + data["img"] + ">" +
-                           "<div class='article'>" +
-                           
-                           "<h3 class='title'>" + data["title"] + "</h3>" +
-                           "<span class='timeauthor'>" + data["time"] + " " + data["author"] + "</span>" +
-                           data["article"] + "</div>" +
-                           
-                           "</div>";
-                           
-                           if ((idx % 5 == 0) && (idx != 0)) {
-                           //newPage is the complete IPAD news page, it includes headers, settings and the content - pageData.
-                           var newPage = $(
-                                           "<div class='ui-page hidden'  data-role='page'  id=" + "page_" + number + "> " +
-                                           //            '<div class="content" >'+
-                                           '<div data-role="header" class="head" data-theme="c">' +
-                                           '<h1>'+title+'</h1>' +
-                                           '<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>' +
-                                           '</div>' +
-                                           
-                                           '<div data-role="content"  class="content">' +
-                                           
-                                           "<div class=" + "css_" + number % 5 + ">" +
-                                           //wrap pagedata here:
-                                           "<div class ='content_div'>" +
-                                           pageData + // this is the 5 news block
-                                           "</div>" +
-                                           
-                                           '</div>' +
-                                           
-                                           '</div>' +
-                                           
-                                           
-                                           '<div data-role="panel" id="left-panel"  class="setting" data-position="left" data-theme="c">\
-                                           <ul data-role="listview" data-theme="d" >\
-                                           <li data-icon="delete"><a href="#" data-rel="close">关闭</a></li>\
-                                           <li><a href="#" name="news">新闻</a></li>\
-                                           <li><a href="#" name="econ">财经</a></li>\
-                                           <li><a href="#" name="mili">军事</a></li>\
-                                           <li><a href="#" name="hist">历史</a></li>\
-                                           <li><a href="#" name="ente">娱乐</a></li>\
-                                           </ul>\
-                                           </div>' +
-                                           
-                                           //                                '<div class="footer" data-role=\"footer\" data-theme="c" >' +
-                                           //                                '<h1><span onclick="gohome()">Home</span></h1>' +
-                                           //                                '</div>' +
-                                           
-                                           //         '</div>'+
-                                           "</div>"
-                                           
-                                           );
-                           //Add new created page to JQM pageContainer:
-                           newPage.appendTo($.mobile.pageContainer);
-                           //Every 5 news create new page, empty pageData.
-                           pageData = '';
-                           }
-                           
-                           });//end of each loop
-                    
-                    
-                    // $.mobile.changePage('#page_1');
-                    
-                    
-                }
-                
-                
                 
                 // Game start:
-                var reclist =localStorage.getItem('reclist');
                 
-                if (reclist== null)  {
-                    //At first time launch , local storage is null , so need to get top storage.
-                    console.log('no listing');
-                    getNewsBlocks('cataname', 'news').then(
-                                                           function () {
-                                                           //when success , call DOM builder:
-                                                           //reclist read all the news blocks from local storage
-                                                           var reclist = JSON.parse(localStorage.getItem('reclist'));
-                                                           createDom(reclist,'news');
-                                                           $.mobile.changePage('#page_1');
-                                                           
-                                                           //            $.mobile.changePage('#page_1');
-                                                           addDetalViewToDom(reclist);
-                                                           //click setting change category:
-                                                           addSettingToDom();
-                                                           
-                                                           addSwapFunctionToDom();
-                                                           
-                                                           },
-                                                           function () {
-                                                           console.log('get news block json data failed');
-                                                           }
-                                                           )
-                    
-                    
-                }
-                else {
-                    console.log('has listing');
-                    var reclist = JSON.parse(localStorage.getItem('reclist'));
-                    var cat = localStorage.getItem('cat');
-                    createDom(reclist,cat);
-                    
-                    $.mobile.changePage('#page_1');
-                    addDetalViewToDom(reclist);
-                    //click setting change category:
-                    addSettingToDom();
-                    
-                    addSwapFunctionToDom();
-                    
+                // Global variables:
+                sessionStorage.setItem('current_page', 1);
+                var reclist = sessionStorage.getItem('reclist');
+                var cat = sessionStorage.getItem('cat');
+                
+                if (cat == (null)) {
+                    cat = 'news';
                 }
                 
-                function addDetalViewToDom(reclist){
-                    $('.content_div').children().click(function () {
-                                                       
-                                                       var news_id = $(this).attr("data-idx") - 1;
-                                                       var pageId = (Math.floor(news_id / 5 + 1));
-                                                       localStorage.setItem('current_page_id', pageId);
-                                                       $this = $('#page_' + pageId).find('.content');
-                                                       $this.children().hide();
-                                                       //
-                                                       var detail_page = $(
-                                                                           "<div class='detail_view'>" +
-                                                                           "<a " + 'onclick=goback()' + ">Back</a>" +
-                                                                           "<h3>" + reclist[news_id]['title'] + "</h3>" +
-                                                                           "<span>" + reclist[news_id]['time'] + '   ' + "</span>" +
-                                                                           "<span>" + reclist[news_id]['author'] + "</span><br/>" +
-                                                                           "<img src=" + reclist[news_id]['img'] + ">" +
-                                                                           "<p>" + reclist[news_id]['article'] + "</p>" +
-                                                                           "</div>"
-                                                                           );
-                                                       detail_page.appendTo($this);
-                                                       });
-                    
+                //  fisrt time launch, no news list in the local storage
+                //  if (reclist== null)  {
+                //At first time launch , local storage is null , so need to get top story, current, top story is news.
+                console.log('launched, cat=' + cat);
+                //if currently use catagory than mytype = cataname, If currently use sitename,than mytype = sitename
+                
+                var current_type = sessionStorage.getItem('current_type');
+                var current_keyword = sessionStorage.getItem('current_keyword');
+                
+                if (current_type == null)
+                {
+                    current_type = "cataname";
+                    current_keyword = "news";
+                }
+                if (current_keyword == null)
+                {
+                    current_type = "cataname";
+                    current_keyword = "news";
                 }
                 
-                function addSwapFunctionToDom(){
-                    //Swap function:
-                    $('div.ui-page').on("swipeleft", function () {
-                                        //console.log('swipe');
-                                        var nextpage = $(this).next('div[data-role="page"]');
-                                        
-                                        if (nextpage.length > 0) {
-                                        $.mobile.changePage(nextpage, {transition:"slide",
-                                                            reverse:false}, true, true);
-                                        
-                                        }
-                                        });
-                    $('div.ui-page').on("swiperight", function () {
-                                        // console.log('swipe');
-                                        var prevpage = $(this).prev('div[data-role="page"]');
-                                        if (prevpage.length > 0) {
-                                        $.mobile.changePage(prevpage, {transition:"slide",
-                                                            reverse:true}, true, true);
-                                        
-                                        }
-                                        });
-                }
                 
-                function addSettingToDom(){
-                    //click setting change category:
-                    $('.setting li').click(function () {
-                                           var cat = $(this).children().children().children().attr('name');
-                                           
-                                           //set current cat:
-                                           localStorage.setItem('cat', cat);
-                                           
-                                           var cat = localStorage.getItem('cat');
-                                           console.log('cat='+cat);
-                                           getNewsBlocks('cataname', cat).then(
-                                                                               function () {
-                                                                               //when success , call DOM builder:
-                                                                               console.log('change cat done:' + cat);
-                                                                               //    $('body').children().empty();
-                                                                               //  var reclist = JSON.parse(localStorage.getItem('reclist'));
-                                                                               
-                                                                               $.mobile.pageContainer.empty();
-                                                                               //$.mobile.changePage('#page_1');
-                                                                               window.location = 'index.html';
-                                                                               
-                                                                               },
-                                                                               function(){
-                                                                               console.log('cat failed');
-                                                                               return;
-                                                                               }
-                                                                               );
-                                           
-                                           });
-                }
                 
+                
+                $.blockUI();
+                //get category and website list:
+                getCategoryList();
+                
+                getNewsBlocks(current_type, current_keyword).then(
+                                                                  
+                                                                  function () {
+                                                                  //when success , call DOM builder:
+                                                                  //reclist read all the news blocks from local storage
+                                                                  var reclist = JSON.parse(sessionStorage.getItem('reclist'));
+                                                                  createDom(reclist, 'news');
+                                                                  addListToSetting();
+                                                                  $.mobile.changePage('#page_1');
+                                                                  
+                                                                  //            $.mobile.changePage('#page_1');
+                                                                  addDetalViewToDom(reclist);
+                                                                  //click setting change category:
+                                                                  addSettingToDom();
+                                                                  
+                                                                  addSwapFunctionToDom();
+                                                                  
+                                                                  addPaginationToDom(1);
+                                                                  
+                                                                  
+                                                                  
+                                                                  
+                                                                  },
+                                                                  function () {
+                                                                  alert('get news block json data failed');
+                                                                  }
+                                                                  )
+                
+                
+                
+
                 
                 ///copy web code end here
             }

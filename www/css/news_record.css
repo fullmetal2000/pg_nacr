@@ -1,3 +1,6 @@
+
+
+
 .content_div{
     border-right: 1px solid;
     border-top: 1px solid;
@@ -7,7 +10,7 @@
 }
 
 
-.timeauthor span{
+span {
 
     color: #db7093;
 }
@@ -43,10 +46,10 @@
 
     position: relative;
     float:  left;
-    left: 5px;
+    left: 5%;
     top: 5%;
     height: 90%;
-    width: 50%;
+    width: 45%;
 }
 .css_1 .div_1 .article {
 
@@ -55,7 +58,7 @@
     right:5px;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 }
@@ -77,9 +80,9 @@
     position: relative;
     float:  left;
     top:5%;
-    left: 5px;
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_1 .div_2 .article{
@@ -87,7 +90,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -110,10 +113,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_1 .div_3 .article{
@@ -121,7 +124,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -151,19 +154,18 @@
 .css_2 .div_1 img {
 
     position: relative;
-    float:  left;
-    left: 5px;
+
+    left: 5%;
     top: 5%;
-    height: 90%;
-    width: 50%;
+    height: 45%;
+    width: 90%;
 }
 .css_2 .div_1 .article {
-
     position: relative;
-    float: right;
-    height: 90%;
+    left: 5%;
+    height: 45%;
     font-size: 80%;
-    width: 45%;
+    width: 90%;
     overflow: hidden;
 
 }
@@ -185,9 +187,9 @@
     position: relative;
     float:  left;
     top:5%;
-    left: 5px;
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_2 .div_2 .article{
@@ -195,7 +197,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 }
@@ -218,10 +220,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_2 .div_3 .article{
@@ -229,7 +231,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -251,10 +253,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_2 .div_4 .article{
@@ -262,7 +264,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -290,10 +292,10 @@
 
     position: relative;
     float:  left;
-    left: 5px;
+    left: 5%;
     top: 5%;
     height: 90%;
-    width: 50%;
+    width: 45%;
 }
 .css_3 .div_1 .article {
 
@@ -310,7 +312,7 @@
     position: fixed;
     top:10%;
     left: 66%;
-    border-right: 1px solid;
+
     height: 40%;
     width: 33%;
     overflow: hidden;
@@ -323,9 +325,9 @@
     position: relative;
     float:  left;
     top:5%;
-    left: 5px;
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_3 .div_2 .article{
@@ -333,7 +335,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 }
@@ -358,10 +360,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_3 .div_3 .article{
@@ -369,7 +371,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -392,10 +394,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_3 .div_4 .article{
@@ -403,7 +405,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -425,10 +427,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_3 .div_0 .article{
@@ -436,7 +438,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -458,19 +460,20 @@
 .css_4 .div_1 img {
 
     position: relative;
-    float:  left;
-    left: 5px;
+
+    left: 5%;
     top: 5%;
-    height: 90%;
-    width: 50%;
+    height: 45%;
+    width: 90%;
 }
 .css_4 .div_1 .article {
 
     position: relative;
-    float: right;
-    height: 90%;
+    left: 5%;
+
+    height: 45%;
     font-size: 80%;
-    width: 45%;
+    width: 90%;
     overflow: hidden;
 
 }
@@ -492,9 +495,9 @@
     position: relative;
     float:  left;
     top:5%;
-    left: 5px;
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_4 .div_2 .article{
@@ -502,7 +505,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 }
@@ -523,20 +526,21 @@
 
 
     position: relative;
-    float:  left;
-    top: 5%;
-    left: 5px;
 
-    height: 80%;
-    width: 50%;
+    top: 5%;
+    left: 5%;
+
+    height: 45%;
+    width: 90%;
 }
 
 .css_4 .div_3 .article{
     position: relative;
-    float: right;
-    height: 90%;
+
+    left: 5%;
+    height: 45%;
     font-size: 80%;
-    width: 48%;
+    width: 90%;
     overflow: hidden;
 
 
@@ -559,10 +563,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_4 .div_4 .article{
@@ -570,7 +574,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -591,7 +595,7 @@
     width: 49%;
     overflow: hidden;
     border-right: 1px solid;
-    border-bottom: 1px solid;
+
 
 }
 
@@ -599,10 +603,10 @@
 
     position: relative;
     float:  left;
-    left: 5px;
+    left: 5%;
     top: 5%;
     height: 90%;
-    width: 50%;
+    width: 45%;
 }
 .css_0 .div_1 .article {
 
@@ -619,7 +623,7 @@
     position: fixed;
     top:10%;
     left: 49%;
-    border-right: 1px solid;
+
     height: 40%;
     width: 49%;
     overflow: hidden;
@@ -632,9 +636,9 @@
     position: relative;
     float:  left;
     top:5%;
-    left: 5px;
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_0 .div_2 .article{
@@ -642,14 +646,14 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 }
 
 .css_0 .div_3 {
     position: fixed;
-
+    left: 0%;
     top:50%;
     height: 40%;
     width: 33%;
@@ -663,20 +667,19 @@
 
 
     position: relative;
-    float:  left;
+    float: left;
     top: 5%;
-    left: 5px;
-
+    left: 5%;
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_0 .div_3 .article{
     position: relative;
-    float: right;
+    float: right;;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -690,7 +693,7 @@
     width: 33%;
     overflow: hidden;
     border-top: 1px solid;
-    border-right: 1px solid;
+
     border-left: 1px solid;
 }
 
@@ -700,10 +703,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_0 .div_4 .article{
@@ -711,7 +714,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
@@ -725,7 +728,7 @@
     width: 33%;
     overflow: hidden;
     border-top: 1px solid;
-    border-right: 1px solid;
+
 }
 
 .css_0 .div_0 img {
@@ -734,10 +737,10 @@
     position: relative;
     float:  left;
     top: 5%;
-    left: 5px;
+    left: 5%;
 
     height: 80%;
-    width: 50%;
+    width: 45%;
 }
 
 .css_0 .div_0 .article{
@@ -745,7 +748,7 @@
     float: right;
     height: 90%;
     font-size: 80%;
-    width: 48%;
+    width: 45%;
     overflow: hidden;
 
 
